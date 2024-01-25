@@ -3,7 +3,9 @@ const route=require('./route/route.js')
 const mongoose = require('mongoose')
 
 const app=express();
+app.use(express.json())
 app.use('/',route)
+
 
 mongoose.connect("mongodb+srv://sonuk:kamble123@cluster0.vfrmzq9.mongodb.net/gadgets-DB").
 then (()=>console.log('Mongob is connected'))

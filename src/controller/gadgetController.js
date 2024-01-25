@@ -4,9 +4,11 @@ const gadgetModel=require('../model/gadgetModel');
 const createGadget=async function(req,res){
     try {
         const gadgetData=req.body
-        const{name,category,releaseYear,status}=gadgetData
-        let newGadget={name,category,releaseYear,status}
-        const savedGadget=await gadgetModel.create(newGadget)
+        console.log(gadgetData)
+         const{Name,category,releaseYear,status}=gadgetData
+         
+        // let newGadget={name,category,releaseYear,status}
+        const savedGadget=await gadgetModel.create(gadgetData)
         return res.status(201).json(savedGadget)
 
 
@@ -29,7 +31,9 @@ const getGadgets=async function(req,res){
 
 const updateGadget=async function(req,res){
     try {
-        const updatedGadget=await gadgetModel.findByIdAndUpdate(req.params.id,req.body,{new:true})
+        const gadgetId=req.params.id
+        const{Name,category,releaseYear,status}=req.body
+        const updatedGadget=await gadgetModel.findByIdAndUpdate(gadgetId,{Name,category,releaseYear,status},{new:true})
         if(!updatedGadget){
             return res.status(404).send({status:true,message:"Gadget not found"})
         }res.json({updatedGadget})
@@ -42,8 +46,8 @@ const updateGadget=async function(req,res){
 
 const deleteGadget=async function(req,res){
     try {
-        
-        const deletedGadget=await gadgetModel.findByIdAndDelete(req.params.id)
+        const gadgetId=req.params.id
+        const deletedGadget=await gadgetModel.findByIdAndDelete(gadgetId)
         if(!deletedGadget){
             return res.status(404).send({status:true,message:"Gadget not found"})
         }
