@@ -1,0 +1,23 @@
+{
+  "name": "gadgets-",
+  "version": "1.0.0",
+  "description": "gadgets project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonupk/gadgets-.git"
+  },
+  "author": "sonu kamble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonupk/gadgets-/issues"
+  },
+  "homepage": "https://github.com/sonupk/gadgets-#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1"
+  }
+}
